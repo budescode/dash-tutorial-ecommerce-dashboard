@@ -55,6 +55,7 @@ app.layout = [
                     ),
                     dbc.Col(
                         md=10,
+                        id="main-content",
                         children=[
                             page_container
                         ]
@@ -68,15 +69,16 @@ app.layout = [
 
 @callback(
     Output("sidebar", "style"),
+    Output("sidebar", "md"),
+    Output("main-content", "md"),
     Input("navbar-toggler", "n_clicks"),
 )
 def toggle_sidebar(n):
     click = n % 2
-    print(n, click)
     if click == 0:
-        return {"display":"block", "height":"100vh"}
+        return {"display":"block", "height":"100vh"}, 2, 10
     else:
-        return {"display":"none", "height":"100vh"}
+        return {"display":"none", "height":"100vh"}, 0, 12
 
 if __name__ == '__main__':
     app.run(debug=True, port=9010)
