@@ -7,7 +7,7 @@ from pages.nav.nav_h import horizontal_nav
 app = Dash(
     external_stylesheets=[
         dbc.themes.BOOTSTRAP, 
-        "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+        dbc.icons.BOOTSTRAP,
     ],
     use_pages=True,
     pages_folder="pages",
